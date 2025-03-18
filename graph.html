@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://d3js.org/d3.v6.js"></script>
+        <title>Knowledge Graph</title>
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+    </body>
+    <script>
+        const margin = {
+            top: 25,
+            right: 35,
+            bottom: 35,
+            left: 40,
+        };
+
+        const width = 1890;
+        const height = 925;
+        const pad = 20;
+
+        const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        d3.json('graph.json').then(function(data){
+
+            function ticked(){
+                node.attr('cx', function(d) {return d.x = Math.max(pad, Math.min(width - pad, d.x));})
+                    .attr('cy', function(d) {return d.y = Math.max(pad, Math.min(height - pad, d.y));});
+
+                labels
+                    .attr('x', (d) => d.x)
+                    .attr('y', (d) => d.y);
+
+                link.attr('x1', function(d){return d.source.x})
+                    .attr('y1', function(d){return d.source.y})
+                    .attr('x2', function(d){return d.target.x})
+                    .attr('y2', function(d){return d.target.y})
+            }
+
+            function startDrag(event){
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+
+            function duringDrag(event){
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+
+            function endDrag(event){
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+
+            var simulation = d3.forceSimulation(data.nodes)
+                .force('link', d3.forceLink(data.links)
+                .id(function(d){
+                    return d.id
+                }).distance(100))
+                .force('charge', d3.forceManyBody().strength(-250))
+                .force('center', d3.forceCenter(width/2, height/2))
+                .on('tick', ticked);
+
+            const svg = d3.select('#container')
+                .append('svg')
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [0, 0, width, height])
+                .attr("style", "max-width: 100%; height: auto;")
+                .style('border', '5px dashed');
+
+            const link = svg.append('g')
+                .selectAll('line')
+                .data(data.links)
+                .enter()
+                .append('line')
+                .attr('stroke-width', 2)
+                .style('stroke', function(d){
+                    if (d.value == 1){
+                        return 'black'
+                    } else {
+                        return 'gray'
+                    }
+                });
+
+            const node = svg.append('g')
+                .selectAll('circle')
+                .data(data.nodes)
+                .enter()
+                .append('circle')
+                .attr('r', function(d){
+                    if (d.group == 'Student'){
+                        return 10
+                    } else if (d.group == 'Supervisor' || d.group == 'Industrial Supervisor'){
+                        return 15
+                    } else {
+                        return 7.5
+                    }
+                })
+                .attr('fill', function(d){
+                    return color(d.group)
+                })
+                .attr('stroke', 'black')
+                .call(
+                    d3.drag()
+                        .on('start', startDrag)
+                        .on('drag', duringDrag)
+                        .on('end', endDrag)
+                );
+
+            const labels = svg
+                .append('g')
+                .selectAll('text')
+                .data(data.nodes)
+                .enter()
+                .append('text')
+                .attr('dx',  function(d){
+                    if (d.group == 'Student'){
+                        return 15
+                    } else if (d.group == 'Supervisor' || d.group == 'Industrial Supervisor'){
+                        return 20
+                    } else {
+                        return 10
+                    }
+                })
+                .attr('dy', 4)
+                .text(function(d){
+                    return d.id
+                })
+                .style('font-size', '10pt')
+                .style('font-family', '"Open Sans", sans-serif')
+                .style('fill', 'black');
+
+            node.append('title').text((d) => d.id);
+
+        })
+    </script>
+</html>

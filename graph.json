@@ -1,0 +1,133 @@
+{
+  "nodes": [
+    { "id": "Luke Watkin", "group": "Student" },
+    { "id": "Andy Roberts", "group": "Student" },
+    { "id": "Alex Robertson", "group": "Student" },
+    { "id": "Hope Irvine", "group": "Student" },
+    { "id": "Yen Lau", "group": "Student" },
+    { "id": "George Paul", "group": "Student" },
+    { "id": "Matthew Chapman", "group": "Student" },
+    { "id": "James Rainey", "group": "Student" },
+    { "id": "Jacob Hobson", "group": "Student" },
+    { "id": "May Alotaibi", "group": "Student" },
+    { "id": "Ashwaq Aldhawi", "group": "Student" },
+    { "id": "Philip Thornton", "group": "Student" },
+    { "id": "Mahsa Nazari", "group": "Student" },
+    { "id": "Lamyaa Aljuaid", "group": "Student" },
+
+    { "id": "Daniel Archambault", "group": "Supervisor" },
+    { "id": "Chris Holder", "group": "Supervisor" },
+    { "id": "Huizhi Liang", "group": "Supervisor" },
+    { "id": "Louise Rayne", "group": "Supervisor" },
+    { "id": "Deepayan Bhowmik", "group": "Supervisor" },
+    { "id": "Tatiana Alvares-Sanches", "group": "Supervisor" },
+    { "id": "Michelle deGruchy", "group": "Supervisor" },
+    { "id": "Ankush Prashar", "group": "Supervisor" },    
+    { "id": "Boguslaw Obara", "group":"Supervisor"},
+
+    { "id": "Andrew Tewksbury", "group": "Industrial Supervisor" },    
+    { "id": "Doreen Boyd", "group":"Supervisor"},
+
+    { "id": "Srijith Rajamohan", "group": "Industrial Supervisor" },
+    { "id": "Robert Nicol", "group": "Industrial Supervisor" },
+
+    { "id": "Dimensionality Reduction", "group": "Topic" },
+    { "id": "Explainable AI", "group": "Topic" },
+    { "id": "Clustering", "group": "Topic" },
+
+    { "id": "Robotic Environmental Perception", "group": "Topic" },
+    { "id": "Autonomous Navigation", "group": "Topic" },
+    { "id": "Low Resource Robotics", "group": "Topic" },
+
+    { "id": "Large Language Models", "group": "Topic" },
+    { "id": "Knowledge Graphs", "group": "Topic" },
+    { "id": "Hallucination Detection", "group": "Topic" },
+	
+    { "id": "remote sensing", "group": "Topic" },
+    { "id": "optical and radar data", "group": "Topic" },
+    { "id": "segmentation", "group": "Topic" },
+
+    { "id": "Heterogeneous Computing", "group": "Topic" },
+    { "id": "Computer Vision", "group": "Topic" },
+    { "id": "Optimisation", "group": "Topic" },
+
+    { "id": "JPEG Trust", "group": "Topic" },
+    { "id": "Media Authenticity", "group": "Topic" },
+    { "id": "Provenance", "group": "Topic" },
+
+    { "id": "Image Manipulation", "group": "Topic" },
+    { "id": "Volume Estimation", "group": "Topic"}
+
+  ],
+  "links": [
+    { "source": "Luke Watkin", "target": "Daniel Archambault", "value": 1 },
+    { "source": "Luke Watkin", "target": "Deepayan Bhowmik", "value": 1 },
+
+    { "source": "Luke Watkin", "target": "Dimensionality Reduction", "value": 2 },
+    { "source": "Luke Watkin", "target": "Explainable AI", "value": 2 },
+    { "source": "Luke Watkin", "target": "Clustering", "value": 2 },
+
+    { "source": "Andy Roberts", "target": "Chris Holder", "value": 1 },
+    { "source": "Andy Roberts", "target": "Deepayan Bhowmik", "value": 1 },
+    { "source": "Andy Roberts", "target": "Ankush Prashar", "value": 1 },
+
+    { "source": "Andy Roberts", "target": "Robotic Environmental Perception", "value": 2 },
+    { "source": "Andy Roberts", "target": "Autonomous Navigation", "value": 2 },
+    { "source": "Andy Roberts", "target": "Low Resource Robotics", "value": 2 },
+
+    { "source": "Alex Robertson", "target": "Huizhi Liang", "value": 1 },
+    { "source": "Alex Robertson", "target": "Deepayan Bhowmik", "value": 1 },
+    { "source": "Alex Robertson", "target": "Srijith Rajamohan", "value": 1 },
+
+    { "source": "Alex Robertson", "target": "Large Language Models", "value": 2 },
+    { "source": "Alex Robertson", "target": "Knowledge Graphs", "value": 2 },
+    { "source": "Alex Robertson", "target": "Hallucination Detection", "value": 2 },
+
+    { "source": "Hope Irvine", "target": "Louise Rayne", "value": 1 },
+    { "source": "Hope Irvine", "target": "Tatiana Alvares-Sanches", "value": 1 },
+    { "source": "Hope Irvine", "target": "Michelle deGruchy", "value": 1 },
+    { "source": "Hope Irvine", "target": "Deepayan Bhowmik", "value": 1 },
+	
+    { "source": "Hope Irvine", "target": "remote sensing", "value": 2 },
+    { "source": "Hope Irvine", "target": "optical and radar data", "value": 2 },
+    { "source": "Hope Irvine", "target": "segmentation", "value": 2 },
+
+    {"source": "Yen Lau", "target": "Deepayan Bhowmik", "value": 1 },
+
+    {"source": "George Paul", "target": "Deepayan Bhowmik", "value": 1 },
+    {"source": "George Paul", "target": "Boguslaw Obara", "value": 1},
+    {"source": "George Paul", "target": "Robert Nicol", "value": 1},
+    {"source": "George Paul", "target": "Heterogeneous Computing", "value": 2},
+    {"source": "George Paul", "target": "Computer Vision", "value": 2},
+    {"source": "George Paul", "target": "Optimisation", "value": 2},
+
+    {"source": "Matthew Chapman", "target": "Deepayan Bhowmik", "value": 1 },
+    {"source": "Matthew Chapman", "target": "Boguslaw Obara", "value": 1},
+    {"source": "Matthew Chapman", "target": "Doreen Boyd", "value": 1 },
+    {"source": "Matthew Chapman", "target": "Andrew Tewksbury", "value": 1},
+    { "source": "Matthew Chapman", "target": "remote sensing", "value": 2 },
+    { "source": "Matthew Chapman", "target": "Media Authenticity", "value": 2 },
+    { "source": "Matthew Chapman", "target": "Image Manipulation", "value": 2 },
+
+    {"source": "James Rainey", "target": "Deepayan Bhowmik", "value": 1 },
+    {"source": "James Rainey", "target":"Computer Vision", "value": 2},
+    {"source": "James Rainey", "target":"segmentation", "value": 2},
+    {"source": "James Rainey", "target":"Volume Estimation", "value": 2},
+
+    {"source": "Jacob Hobson", "target": "Deepayan Bhowmik", "value": 1 },
+
+    {"source": "May Alotaibi", "target": "Deepayan Bhowmik", "value": 1 },
+    {"source": "May Alotaibi", "target": "Chris Holder", "value": 1 },
+    {"source": "May Alotaibi", "target": "JPEG Trust", "value": 2},
+    {"source": "May Alotaibi", "target": "Media Authenticity", "value": 2},
+    {"source": "May Alotaibi", "target": "Provenance", "value": 2},
+
+    {"source": "Ashwaq Aldhawi", "target": "Deepayan Bhowmik", "value": 1 },
+
+    {"source": "Philip Thornton", "target": "Deepayan Bhowmik", "value": 1 },
+
+    {"source": "Lamyaa Aljuaid", "target": "Deepayan Bhowmik", "value": 1 },
+
+    {"source": "Mahsa Nazari", "target": "Deepayan Bhowmik", "value": 1 }
+  ]
+}
