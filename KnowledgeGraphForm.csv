@@ -1,5 +1,9 @@
 Id,Start time,Completion time,Email,Name,Your Name,Your Main Supervisor,Your Second Supervisor,Your Third Supervisor,Is your third supervisor industrial,Your Fourth Supervisor,Is your fourth supervisor industrial,Topic One,Topic Two,Topic Three
-1,2/14/2025 1:56,2/14/2025 1:57,c1014695@newcastle.ac.uk,Luke Watkin,Luke Watkin,Daniel Archambault,Deepayan Bhowmik,,,,,Dimensionality Reduction,Explainable AI,Clustering
-,,,,,Andy Roberts,Chris Holder,Deepayan Bhowmik,,,,,Robotic Environmental Perception,Autnonomous Navigation,Low Resource Robotics
-,,,,,Alex Robertson,Huizhi Liang,Deepayan Bhowmik,Srijith Rajamohan,Yes,,,Large Language Models,Knowledge Graphs,Hallucination Detection and Mitigation
-,,,,,Hope Irvine,Louise Rayne,Tatiana Alvares-Sanches,Michelle deGruchy,Yes,Deepayan Bhowmik,No,remote sensing,optical and radar data,segmentation
+1,2/14/2025 1:56,2/14/2025 1:57,c1014695@newcastle.ac.uk,Luke Watkin,Luke Watkin ,Daniel Archambault ,Deepayan Bhowmik,,,,,Dimensionality Reduction ,Explainable AI,Clustering 
+2,3/7/2025 13:57,3/7/2025 13:59,c3069834@newcastle.ac.uk,Yen Lau,SOOK YEN LAU,Deepayan Bhowmik,Obara Boguslaw,,,,,Neuromorphic Computing,Spiking Neural Network,Visual system
+3,4/11/2025 12:58,4/11/2025 13:00,c4015131@newcastle.ac.uk,May Alotaibi,May Alotaibi, Deepayan Bhowmik,Chris Holder,,,,,JPEG Trust,Content hashing ,Watermarking
+4,4/11/2025 12:57,4/11/2025 13:01,c0037654@newcastle.ac.uk,Alex Robertson,Alex Robertson,Huizhi Liang,Deepayan Bhowmik,Mahbub Gani,Yes,,,Large Language Models,Detecting and Mitigating Hallucinations,Knowledge Graphs
+5,4/11/2025 12:58,4/11/2025 13:03,c4071391@newcastle.ac.uk,Andy Roberts,Andrew Roberts,Chris Holder,Deepayan Bhowmik,Ankush Prashar,No,,No,Robotic Environmental Perception,Autnonomous Navigation,Low Resource Robotics
+6,4/12/2025 7:58,4/12/2025 8:01,c1032346@newcastle.ac.uk,Jacob Hobson,Jacob Hobson,Jon Mills,Deepayan Bhowmik,Shidong Wang,No,Slimane Merzouk,Yes,Robust Earth Observation,Onboard Satellite Processing,Embedded Systems
+7,4/12/2025 14:17,4/12/2025 14:54,c2057523@newcastle.ac.uk,Lamyaa Aljuaid,Lamyaa Zaed Aljuaid,Dr. Deepayan Bhowmik,Dr. Tong Xin,,,,,AI Image Manipulation Detection,AI Image Authenticity Verification,Trust in AI-Generated Images
+8,4/15/2025 17:08,4/15/2025 17:12,c0079988@newcastle.ac.uk,Pawel Gertner,Pawel Gertner,Dr Tong Xin,Boguslaw Obara,Christopher Carey,Yes,Chris Bacon,Yes,Computer Vision,Vision Transformers,Fine-grained Classification
