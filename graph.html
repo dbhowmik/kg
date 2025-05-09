@@ -134,6 +134,9 @@
                     }
                 })
                 .attr('dy', 4)
+                .text(function(d){
+                    return d.id
+                })
                 .style('font-size', '10pt')
                 .style('font-family', '"Open Sans", sans-serif')
                 .style('fill', 'black');
