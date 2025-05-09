@@ -26,7 +26,11 @@ def process_csv(file):
         for x in ['Your Main Supervisor', 'Your Second Supervisor']:
             sup = {"id" : clean_title(row[x]), 'group':'Supervisor'}
             add_node(sup)
-            dataset['links'].append({ "source": row["Your Name"], "target":  clean_title(row[x]), "value": 1 })
+            if x == 'Your Main Supervisor':
+                value = 3
+            else:
+                value = 1
+            dataset['links'].append({ "source": row["Your Name"], "target":  clean_title(row[x]), "value": value })
 
         for x in [['Your Third Supervisor','Is your third supervisor industrial'], ['Your Fourth Supervisor','Is your fourth supervisor industrial']]:
             if pd.isna(row[x[0]]):

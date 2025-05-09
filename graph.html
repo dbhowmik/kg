@@ -25,34 +25,56 @@
 
         const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        d3.json('graph.json').then(function(data){
+        d3.json('sample.json').then(function(data) {
+            data.nodes.forEach(node => node.linkCount = 0);
 
-            function ticked(){
-                node.attr('cx', function(d) {return d.x = Math.max(pad, Math.min(width - pad, d.x));})
-                    .attr('cy', function(d) {return d.y = Math.max(pad, Math.min(height - pad, d.y));});
+            // Count how many times each node appears in the links
+            data.links.forEach(link => {
+                data.nodes.forEach(node => {
+                    if (node.id === link.source || node.id === link.target) {
+                        node.linkCount += 1;
+                    }
+                });
+            });
+
+            function ticked() {
+                node.attr('cx', function (d) {
+                    return d.x = Math.max(pad, Math.min(width - pad, d.x));
+                })
+                    .attr('cy', function (d) {
+                        return d.y = Math.max(pad, Math.min(height - pad, d.y));
+                    });
 
                 labels
                     .attr('x', (d) => d.x)
                     .attr('y', (d) => d.y);
 
-                link.attr('x1', function(d){return d.source.x})
-                    .attr('y1', function(d){return d.source.y})
-                    .attr('x2', function(d){return d.target.x})
-                    .attr('y2', function(d){return d.target.y})
+                link.attr('x1', function (d) {
+                    return d.source.x
+                })
+                    .attr('y1', function (d) {
+                        return d.source.y
+                    })
+                    .attr('x2', function (d) {
+                        return d.target.x
+                    })
+                    .attr('y2', function (d) {
+                        return d.target.y
+                    })
             }
 
-            function startDrag(event){
+            function startDrag(event) {
                 if (!event.active) simulation.alphaTarget(0.3).restart();
                 event.subject.fx = event.subject.x;
                 event.subject.fy = event.subject.y;
             }
 
-            function duringDrag(event){
+            function duringDrag(event) {
                 event.subject.fx = event.x;
                 event.subject.fy = event.y;
             }
 
-            function endDrag(event){
+            function endDrag(event) {
                 if (!event.active) simulation.alphaTarget(0);
                 event.subject.fx = null;
                 event.subject.fy = null;
@@ -60,11 +82,11 @@
 
             var simulation = d3.forceSimulation(data.nodes)
                 .force('link', d3.forceLink(data.links)
-                .id(function(d){
-                    return d.id
-                }).distance(150))
-                .force('charge', d3.forceManyBody().strength(-100))
-                .force('center', d3.forceCenter(width/2, height/2))
+                    .id(function (d) {
+                        return d.id
+                    }).distance(20))
+                .force('charge', d3.forceManyBody().strength(-10))
+                .force('center', d3.forceCenter(width / 2, height / 2))
                 .on('tick', ticked);
 
             const svg = d3.select('#container')
@@ -75,38 +97,57 @@
                 .attr("style", "max-width: 100%; height: auto;")
                 .style('border', '5px dashed');
 
-            const link = svg.append('g')
+            const container = svg.append('g');
+
+            const link = container.append('g')
                 .selectAll('line')
                 .data(data.links)
                 .enter()
                 .append('line')
-                .attr('stroke-width', 2)
-                .style('stroke', function(d){
-                    if (d.value == 1){
+                .attr('stroke-width', function (d) {
+                    if (d.value === 1) {
+                        return 0.75
+                    } else if (d.value === 3) {
+                        return 1
+                    } else {
+                        return 0.5
+                    }
+                }).style('stroke', function (d) {
+                    if (d.value === 1) {
                         return 'black'
+                    } else if (d.value === 3) {
+                        return 'blue'
                     } else {
                         return 'gray'
                     }
                 });
 
-            const node = svg.append('g')
+            const node = container.append('g')
                 .selectAll('circle')
                 .data(data.nodes)
                 .enter()
                 .append('circle')
-                .attr('r', function(d){
-                    if (d.group == 'Student'){
-                        return 10
-                    } else if (d.group == 'Supervisor' || d.group == 'Industrial Supervisor'){
-                        return 15
+                .attr('stroke-width', 0.5)
+                .attr('r', function (d) {
+                    if (d.group === 'Student') {
+                        return 3
+                    } else if (d.group === 'Supervisor' || d.group === 'Industrial Supervisor') {
+                        console.log(d)
+                        return d.linkCount ? 3 + (d.linkCount * 1) : 3;
                     } else {
-                        return 7.5
+                        return d.linkCount ? 2 + (d.linkCount * 0.5) : 2;
                     }
                 })
-                .attr('fill', function(d){
+                .attr('fill', function (d) {
                     return color(d.group)
                 })
                 .attr('stroke', 'black')
+                .on('mouseover', function() {
+                    d3.select(this).attr('fill', 'black')
+                })
+                .on('mouseout', function(event, d) {
+                    d3.select(this).attr('fill', color(d.group))
+                })
                 .call(
                     d3.drag()
                         .on('start', startDrag)
@@ -114,31 +155,40 @@
                         .on('end', endDrag)
                 );
 
-            const labels = svg
+            const labels = container
                 .append('g')
                 .selectAll('text')
                 .data(data.nodes)
                 .enter()
                 .append('text')
-                .attr('dx',  function(d){
-                    if (d.group == 'Student'){
-                        return 15
-                    } else if (d.group == 'Supervisor' || d.group == 'Industrial Supervisor'){
-                        return 20
+                .attr('dx', function (d) {
+                    if (d.group === 'Student') {
+                        return 5
+                    } else if (d.group === 'Supervisor' || d.group === 'Industrial Supervisor') {
+                        return d.linkCount ? 5 + (d.linkCount) : 5;
                     } else {
-                        return 10
+                        return d.linkCount ? 5 + (d.linkCount) : 5;
                     }
                 })
-                .attr('dy', 4)
-                .text(function(d){
+                .attr('dy', 2)
+                .text(function (d) {
                     return d.id
                 })
-                .style('font-size', '10pt')
+                .style('font-size', '2pt')
                 .style('font-family', '"Open Sans", sans-serif')
                 .style('fill', 'black');
 
-            node.append('title').text((d) => d.id);
+            node.append('title').text((d) => d.id + '\nNumber of connected edges: ' + d.linkCount);
+            const zoom = d3.zoom()
+              .scaleExtent([1, 5]) // zoom limits
+              .translateExtent([[0, 0], [width, height]])  // pan limits
+              .on("zoom", (event) => {
+                container.attr("transform", event.transform);
+                console.log(this)
+              });
 
+            svg.call(zoom);
         })
+
     </script>
 </html>

@@ -1,9 +1,12 @@
 Id,Start time,Completion time,Email,Name,Your Name,Your Main Supervisor,Your Second Supervisor,Your Third Supervisor,Is your third supervisor industrial,Your Fourth Supervisor,Is your fourth supervisor industrial,Topic One,Topic Two,Topic Three
-1,2/14/2025 1:56,2/14/2025 1:57,c1014695@newcastle.ac.uk,Luke Watkin,Luke Watkin ,Daniel Archambault ,Deepayan Bhowmik,,,,,Dimensionality Reduction ,Explainable AI,Clustering 
-2,3/7/2025 13:57,3/7/2025 13:59,c3069834@newcastle.ac.uk,Yen Lau,SOOK YEN LAU,Deepayan Bhowmik,Obara Boguslaw,,,,,Neuromorphic Computing,Spiking Neural Network,Visual system
+1,2/14/2025 1:56,2/14/2025 1:57,c1014695@newcastle.ac.uk,Luke Watkin,Luke Watkin ,Daniel Archambault ,Deepayan Bhowmik,,,,,Dimensionality Reduction ,Explainable AI,Clustering
+2,3/7/2025 13:57,3/7/2025 13:59,c3069834@newcastle.ac.uk,Yen Lau,SOOK YEN LAU,Deepayan Bhowmik,Boguslaw Obara,,,,,Neuromorphic Computing,Spiking Neural Network,Visual system
 3,4/11/2025 12:58,4/11/2025 13:00,c4015131@newcastle.ac.uk,May Alotaibi,May Alotaibi, Deepayan Bhowmik,Chris Holder,,,,,JPEG Trust,Content hashing ,Watermarking
 4,4/11/2025 12:57,4/11/2025 13:01,c0037654@newcastle.ac.uk,Alex Robertson,Alex Robertson,Huizhi Liang,Deepayan Bhowmik,Mahbub Gani,Yes,,,Large Language Models,Detecting and Mitigating Hallucinations,Knowledge Graphs
 5,4/11/2025 12:58,4/11/2025 13:03,c4071391@newcastle.ac.uk,Andy Roberts,Andrew Roberts,Chris Holder,Deepayan Bhowmik,Ankush Prashar,No,,No,Robotic Environmental Perception,Autnonomous Navigation,Low Resource Robotics
 6,4/12/2025 7:58,4/12/2025 8:01,c1032346@newcastle.ac.uk,Jacob Hobson,Jacob Hobson,Jon Mills,Deepayan Bhowmik,Shidong Wang,No,Slimane Merzouk,Yes,Robust Earth Observation,Onboard Satellite Processing,Embedded Systems
 7,4/12/2025 14:17,4/12/2025 14:54,c2057523@newcastle.ac.uk,Lamyaa Aljuaid,Lamyaa Zaed Aljuaid,Dr. Deepayan Bhowmik,Dr. Tong Xin,,,,,AI Image Manipulation Detection,AI Image Authenticity Verification,Trust in AI-Generated Images
 8,4/15/2025 17:08,4/15/2025 17:12,c0079988@newcastle.ac.uk,Pawel Gertner,Pawel Gertner,Dr Tong Xin,Boguslaw Obara,Christopher Carey,Yes,Chris Bacon,Yes,Computer Vision,Vision Transformers,Fine-grained Classification
+9,4/25/2025 14:49,4/25/2025 14:50,c3054322@newcastle.ac.uk,George Paul,George Paul,Deepayan Bhowmik,Boguslaw Obara,Robert Nicol,Yes,,,Computer Vision,Heterogeneous Computing,Optimisation
+10,4/25/2025 19:38,4/25/2025 19:40,c0017445@newcastle.ac.uk,Hope Irvine,Hope Irvine ,Dr Louise Rayne,Dr Deepayan Bhowmik,Dr Tatiana Alvares-Sanches ,No,Dr Michelle deGruchy,Yes,Image Recognition Algorithms,Archaeology,Water Management
+11,5/9/2025 15:31,5/9/2025 15:34,b9015566@newcastle.ac.uk,George Bell,George Bell,Alma Cantu,Gary Ushaw,N/A,No,N/A,No,Data visualisation,Immersive technology,Perception
