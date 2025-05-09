@@ -1,6 +1,6 @@
 Id,Start time,Completion time,Email,Name,Your Name,Your Main Supervisor,Your Second Supervisor,Your Third Supervisor,Is your third supervisor industrial,Your Fourth Supervisor,Is your fourth supervisor industrial,Topic One,Topic Two,Topic Three
 1,2/14/2025 1:56,2/14/2025 1:57,c1014695@newcastle.ac.uk,Luke Watkin,Luke Watkin ,Daniel Archambault ,Deepayan Bhowmik,,,,,Dimensionality Reduction ,Explainable AI,Clustering 
-2,3/7/2025 13:57,3/7/2025 13:59,c3069834@newcastle.ac.uk,Yen Lau,SOOK YEN LAU,Deepayan Bhowmik,Obara Boguslaw,,,,,Neuromorphic Computing,Spiking Neural Network,Visual system
+2,3/7/2025 13:57,3/7/2025 13:59,c3069834@newcastle.ac.uk,Yen Lau,SOOK YEN LAU,Deepayan Bhowmik,Boguslaw Obara,,,,,Neuromorphic Computing,Spiking Neural Network,Visual system
 3,4/11/2025 12:58,4/11/2025 13:00,c4015131@newcastle.ac.uk,May Alotaibi,May Alotaibi, Deepayan Bhowmik,Chris Holder,,,,,JPEG Trust,Content hashing ,Watermarking
 4,4/11/2025 12:57,4/11/2025 13:01,c0037654@newcastle.ac.uk,Alex Robertson,Alex Robertson,Huizhi Liang,Deepayan Bhowmik,Mahbub Gani,Yes,,,Large Language Models,Detecting and Mitigating Hallucinations,Knowledge Graphs
 5,4/11/2025 12:58,4/11/2025 13:03,c4071391@newcastle.ac.uk,Andy Roberts,Andrew Roberts,Chris Holder,Deepayan Bhowmik,Ankush Prashar,No,,No,Robotic Environmental Perception,Autnonomous Navigation,Low Resource Robotics
