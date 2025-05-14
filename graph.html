@@ -7,8 +7,14 @@
         <title>Knowledge Graph</title>
     </head>
     <body>
-        <div id="container">
-
+        <div id="header"  style="display: block; float: left; width: 100%; padding-left: 10px">
+            <h1>Knowledge Graph</h1>
+            <p>Click on a node to hide all not directly connected to it. Click on any node again to restore all.</p>
+        </div>
+        <div id="content" style="display: block; width: 100%; float: left; padding: 0px 10px 0px 10px;">
+            <p>TODO: Insert Legend Here</p>
+            <div id="container" style="display: block; width: 90%; margin-left: auto; margin-right: auto">
+            </div>
         </div>
     </body>
     <script>
@@ -20,13 +26,27 @@
         };
 
         const width = 1890;
-        const height = 925;
+        const height = 800;
         const pad = 20;
+
+        let clicker = 0;
 
         const color = d3.scaleOrdinal(d3.schemeCategory10);
 
         d3.json('sample.json').then(function(data) {
             data.nodes.forEach(node => node.linkCount = 0);
+            console.log(data.nodes.length)
+
+            // Create a lookup of all nodes and edges
+            const linkedByIndex = {};
+            data.links.forEach(d => {
+                linkedByIndex[`${d.source},${d.target}`] = true;
+                linkedByIndex[`${d.target},${d.source}`] = true;
+            });
+
+             function isConnected(a, b) {
+                return linkedByIndex[`${a.id},${b.id}`] || a.id === b.id;
+             }
 
             // Count how many times each node appears in the links
             data.links.forEach(link => {
@@ -91,11 +111,11 @@
 
             const svg = d3.select('#container')
                 .append('svg')
-                .attr("width", width)
+                .attr("width", "100%")
                 .attr("height", height)
                 .attr("viewBox", [0, 0, width, height])
                 .attr("style", "max-width: 100%; height: auto;")
-                .style('border', '5px dashed');
+                .style('border', '1px dashed');
 
             const container = svg.append('g');
 
@@ -142,11 +162,31 @@
                     return color(d.group)
                 })
                 .attr('stroke', 'black')
-                .on('mouseover', function() {
-                    d3.select(this).attr('fill', 'black')
+                .on('mouseover', function(event, d) {
+                    d3.select(this).attr('fill', 'black');
+                })
+                .on("click", function (event, d){
+                    if (clicker === 0) {
+                        node.style("opacity", o => isConnected(d, o) ? 1 : 0);
+                        labels.style("opacity", o => isConnected(d, o) ? 1 : 0);
+                        link.style('opacity', function (l) {
+                            return l.source.id === d.id || l.target.id === d.id ? 1 : 0;
+                        });
+                        clicker = 1
+                    } else {
+                        clicker = 0;
+                        d3.selectAll('circle')
+                            .attr("fill", d => color(d.group))
+                            .attr("stroke", "black")
+                            .style("opacity", 1);
+                        link.style("opacity",1);
+                        labels.style("opacity", 1);
+
+                        d3.select(this).attr('fill', 'black');
+                    }
                 })
                 .on('mouseout', function(event, d) {
-                    d3.select(this).attr('fill', color(d.group))
+                    d3.select(this).attr('fill', color(d.group));
                 })
                 .call(
                     d3.drag()
@@ -184,7 +224,6 @@
               .translateExtent([[0, 0], [width, height]])  // pan limits
               .on("zoom", (event) => {
                 container.attr("transform", event.transform);
-                console.log(this)
               });
 
             svg.call(zoom);
